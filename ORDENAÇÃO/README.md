@@ -32,3 +32,13 @@ calculemos agora a complexidade do merge sort, na j-ésima linha da árvore de r
 observe que, a árvore de recursão sempre ccaminha pro caso base, que é vetor unitário, então basta calcularmos j tal que j é a quantidade de linhas pra caminhar pro caso base, então temos que n/(2^j) = 1, o que implica que n = 2^j, e j = logn (base 2, lembrem-se), portanto fazemos logn vezes uma operação de O(n), o que resulta em complexidade final de O(nlogn), o que em geral é muito melhor que O(n^2)
 
 tenho uma implementação do merge_sort neste repositório, se quiserem ver
+
+
+
+# Contagem de Inversões usando métodos de ordenação
+
+imagine o seguinte enunciado de uma questão: dado um vetor de n inteiros, indexado de 1 a n, quantos pares (i,j) existem com 1 <= i < j <= n, tal que vetor[i] > vetor[j], ou seja, quantos pares de índices do vetor existem tal que se pegar estes dois pares, eles estão ordenados em ordem decrescente
+
+existem várias formas de resolver esse problema, e ele é chamado de contagem de inversões, pois cada par (i,j) que obedeça as propriedades citadas é chamado de inversão no vetor, os métodos mais famosos de resolver esse problema são usando métodos de ordenação ou BIT (binary indexed tree, ou fenwick tree, este é um conceito mais avançado, talvez eu faça uma aula em um outro folder neste repositório)
+
+a solução em O(n^2) é trivial, basta que, para cada elemento, façamos um for que percorra todo o resto do vetor a direita e veja quais são os elementos menores que o que você está olhando, isso essencialmente acaba sendo o mesmo que contar quantas trocas o bubble sort faz para ordenar o vetor, o que também é uma forma de resolver esse problema, em O(n^2), neste repositório coloquei uma solução deste problema com bubble sort, onde basicamente eu coloco int bubble_sort() ao invés de void, e a cada vez que dou um swap, faço a variável trocas (que eu declaro como int) aumentar em um (++), como eu disse, trivial
