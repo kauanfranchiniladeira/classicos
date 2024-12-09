@@ -47,6 +47,6 @@ mas podemos fazer esse problema de maneira bem mais eficiente, fazendo ele em O(
 
 agora basta fazermos um merge sort que retorna um int inversoes, em um intervalo unitário não há inversões, porém esse é o caso base da árvore de recursão, (return 0), agora se não for unitário, fazemos inversoes = merge_sort((ini+fim)/2) + merge_sort((ini+fim)/2+1), e aqui ja somamos as inversões de cada metade, agora basta somarmos as inversões entre às metades, para fazer isso, quando estamos fazendo merge com as duas partes, encontremos um índice j da segunda metade tal que vetor[j] < vetor[i] com i sendo o índice do elemento que estamos olhando da primeira metade, dai inversoes aumenta em (ini+fim)/2 - i + 1, pois temos (ini+fim)/2 elementos na primeira metade, -i para descontar os i primeiros elementos que não contam e +1 para adicionar a inversão do próprio i, e agora basta retornarmos a variável inversoes
 
-sem dúvida a implementação com merge sort não é fácil, aqui no folder tenho a implementação deste problema com contagem de inversões
+sem dúvida a implementação com merge sort não é fácil, aqui no folder tenho a implementação deste problema com merge sort
 
 quem produziu todo esse material fui eu, e se for usar em algum lugar, por favor dar o devido crédito, obrigado e bons estudos!
